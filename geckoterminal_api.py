@@ -118,7 +118,7 @@ if __name__ == "__main__":
             for pool in latest_pools['data']:
                 # print(json.dumps(pool, indent=4))
                 if pool not in new_pool_list:
-                    pool['attributes']['pool_created_at'] = get_local_time(pool['attributes']['pool_created_at'])
+                    # pool['attributes']['pool_created_at'] = get_local_time(pool['attributes']['pool_created_at'])
                     new_pool_list.append(pool)
 
         time.sleep(1)
@@ -126,4 +126,4 @@ if __name__ == "__main__":
         if current_time.tm_min % 1 == 0 and current_time.tm_sec == 30:
             print(len(new_pool_list))
             for pool in new_pool_list:
-                print(pool['attributes']['name'])
+                print(json.dumps(pool, indent=4))
